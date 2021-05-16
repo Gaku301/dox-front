@@ -35,18 +35,95 @@ function Index() {
 
       {/* Main */}
       <div id="main">
-        <article class="post featured">
-            <header class="major">
-              <h2>Do Not Abandon</h2>
-              <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-              facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-              amet nullam sed etiam veroeros.</p>
-            </header>
-            <a href="/" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-            <ul class="actions special">
-              <li><a href="/" class="button large">Full Story</a></li>
-            </ul>
+        {/* Featured Post */}
+        <article className="post featured">
+          <header className="major">
+            <h2>Do Not Abandon</h2>
+            <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+            facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+            amet nullam sed etiam veroeros.</p>
+          </header>
+          <a href="/" className="image main"><img src="images/pic01.jpg" alt="" /></a>
+          <ul className="actions special">
+            <li><a href="/" className="button large">Full Story</a></li>
+          </ul>
         </article>
+
+        {/* Posts */}
+        <section class="posts">
+          <article>
+            <header>
+              <span className="date">April 24, 2017</span>
+              <h2><a href="/">こんな感じ</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic02.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <span className="date">April 22, 2017</span>
+              <h2><a href="/">Primis eget<br />
+              imperdiet lorem</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic03.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <span className="date">April 18, 2017</span>
+              <h2><a href="/">Ante mattis<br />
+              interdum dolor</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic04.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <span className="date">April 14, 2017</span>
+              <h2><a href="/">Tempus sed<br />
+              nulla imperdiet</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic05.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <span className="date">April 11, 2017</span>
+              <h2><a href="/">Odio magna<br />
+              sed consectetur</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic06.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+          <article>
+            <header>
+              <span className="date">April 7, 2017</span>
+              <h2><a href="/">Augue lorem<br />
+              primis vestibulum</a></h2>
+            </header>
+            <a href="/" className="image fit"><img src="images/pic07.jpg" alt="" /></a>
+            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+            <ul className="actions special">
+              <li><a href="/" className="button">Full Story</a></li>
+            </ul>
+          </article>
+        </section>
+
       </div>
     </div>
   );
