@@ -4,12 +4,12 @@ import Header from '../components/header';
 import One from '../components/one';
 import Two from '../components/two';
 import Three from '../components/three';
+import insertAdjacentFooter from '../common/common';
 
 
 class Index extends React.Component{
 
   componentDidMount() {
-    const $window = window;
     const $body = document.getElementsByTagName('body');
     const $header = document.getElementById('header');
     const $footer = document.getElementById('footer');
@@ -21,31 +21,14 @@ class Index extends React.Component{
       parallaxFactor: 20
     }
 
-    const breakpoints = {
-      xlarge:  [ '1281px',  '1800px' ],
-      large:   [ '981px',   '1280px' ],
-      medium:  [ 737, 980],
-      small:   [ '481px',   '736px'  ],
-      xsmall:  [ null,      '480px'  ],
-    };
-
     // 初回読み込み時
-    window.onload = function () {
-      if(document.body.clientWidth > breakpoints.medium[1]) {
-        $header.insertAdjacentElement('beforeend', $footer);
-        console.log($header);
-      } else if(document.body.clientWidth <= breakpoints.medium[1]) {
-        $main.insertAdjacentElement('afterend', $footer);
-      }
+    window.onload = () => {
+      insertAdjacentFooter($header, $footer, $main);
     }
 
     // ウィンドウリサイズ時
     const resizeFunc = () => {
-      if(document.body.clientWidth > breakpoints.medium[1]) {
-        $header.insertAdjacentElement('beforeend', $footer);
-      }else if(document.body.clientWidth <= breakpoints.medium[1]) {
-        $main.insertAdjacentElement('afterend', $footer);
-      }
+      insertAdjacentFooter($header, $footer, $main);
     }
     window.addEventListener("resize", resizeFunc);
 

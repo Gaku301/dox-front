@@ -5,13 +5,21 @@ class One extends React.Component {
     return (
       <section id="one">
         <header className="major">
-          <h2>Ipsum lorem てすとって
-            aliquam ante commodo<br />
-            magna sed accumsan arcu neque.</h2>
+          <h2>一緒に動物たちを救ってくれませんか</h2>
         </header>
-        <p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+        <p>あなたは知っていますか？ <br/>
+          年間に、何千、何万頭もの犬や猫が殺処分されていることを。<br/>
+
+          この事実を知ってあなたは、何を思い、どう感じましたか？<br/>
+          「何かしてあげたい。でも、何をしたらいいかわからない。」 <br/>
+          そんなことを思ったのではないでしょうか？　大丈夫です。<br/>
+          あなたの身のまわりで、要らなくなったもの、処分しようと思っていたものはないですか？<br/>
+          それを私たちに譲っていただけるだけでいいんです。<br/>
+          それを私たちがお金にかえ、そのお金を寄付や保護活動に充てることができるのです。<br/>
+
+          あなたの少しの行動で1頭でも多くの犬や猫が救われるかもしれないのです。</p>
         <ul className="actions">
-          <li><a href="/" className="button">Learn More</a></li>
+          <li><a href="/" className="button">要らないものを送る</a></li>
         </ul>
       </section>
     );
