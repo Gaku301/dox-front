@@ -10,7 +10,6 @@ import insertAdjacentFooter from '../common/common';
 class Index extends React.Component{
 
   componentDidMount() {
-    const $body = document.getElementsByTagName('body');
     const $header = document.getElementById('header');
     const $footer = document.getElementById('footer');
     const $main = document.getElementById('main');
