@@ -1,7 +1,8 @@
 import React from 'react';
 import {init, send} from 'emailjs-com';
+import { emailjsConf } from '../common/const'
 // emailjs
-init("user_EcfMzOOm9cbCR3kPaadmx");
+init(emailjsConf.user_id);
 
 class Three extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Three extends React.Component {
     // フォームを初期化
     event.preventDefault();
     
-    send('dox_animal', 'template_ybfsbhm', data, 'user_EcfMzOOm9cbCR3kPaadmx')
+    send(emailjsConf.service_id, emailjsConf.templeate_id, data, emailjsConf.user_id)
     .then(() => {
       // スピナーを非表示
       this.setStateIsLoading();
