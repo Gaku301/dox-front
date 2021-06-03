@@ -5,20 +5,23 @@ import One from '../components/one';
 import Two from '../components/two';
 import Three from '../components/three';
 import insertAdjacentFooter from '../common/common';
+import LoadingSpinner from '../components/loader';
 
 
 class Index extends React.Component{
+
+  constructor(props) {
+    super(props)
+    // スピナー初期表示は非表示
+    this.state = {isLoading: false};
+
+    this.isShowLoadingSpinner = this.isShowLoadingSpinner.bind(this);
+  }
 
   componentDidMount() {
     const $header = document.getElementById('header');
     const $footer = document.getElementById('footer');
     const $main = document.getElementById('main');
-    const settings = {
-      // Parallax background effect?
-      parallax: true,
-      // Parallax factor (lower = more intense, higher = less intense).
-      parallaxFactor: 20
-    }
 
     // 初回読み込み時
     window.onload = () => {
@@ -30,21 +33,28 @@ class Index extends React.Component{
       insertAdjacentFooter($header, $footer, $main);
     }
     window.addEventListener("resize", resizeFunc);
+  }
 
+  // スピナーを表示
+  isShowLoadingSpinner() {
+    this.setState({isLoading: this.state.isLoading ? false : true});
   }
 
   render() {
+    const isLoading = this.state.isLoading;
     return (
-      <div>
-        <Header />
+      <>
+      {/* スピナー */}
+      {isLoading && <LoadingSpinner />}
+      <Header />
         {/* Main */}
         <div id="main">
           <One />
           <Two />
-          <Three />
+          <Three setStateIsLoading={this.isShowLoadingSpinner} />
         </div>
       <Footer />
-      </div>
+      </>
     );
   }
 }

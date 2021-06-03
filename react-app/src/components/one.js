@@ -5,7 +5,7 @@ class One extends React.Component {
     return (
       <section id="one">
         <header className="major">
-          <h2>一緒に動物たちを救ってくれませんか</h2>
+          <h2>あなたの行動で命が救われる</h2>
         </header>
         <p>あなたは知っていますか？ <br/>
           年間に、何千、何万頭もの犬や猫が殺処分されていることを。<br/>

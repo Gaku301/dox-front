@@ -11,33 +11,47 @@ class Three extends React.Component {
       email: '',
       message: ''
     };
-
+    this.setStateIsLoading = this.setStateIsLoading.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.contactSubmit = this.contactSubmit.bind(this);
   }
 
   handleChange(event) {
+    // フォームの入力をセット
     const target = event.target;
     const value  = target.value;
     const name = target.name;
     this.setState({ [name]: value });
   };
 
+  setStateIsLoading() {
+    // スピナーの表示非表示切り替え
+    return this.props.setStateIsLoading();
+  };
+
   contactSubmit(event) {
+    // スピーナーを表示
+    this.setStateIsLoading();
+
+    // 送信データを作成
     const data = {
       from_name: this.state.name,
       message: this.state.message,
       reply_to: this.state.email,
     };
+    // フォームを初期化
     event.preventDefault();
-    console.log(data);
     
     send('dox_animal', 'template_ybfsbhm', data, 'user_EcfMzOOm9cbCR3kPaadmx')
-    .then(function() {
-      console.log('SUCCESS!');
-  }, function(error) {
-      console.log('FAILED...', error);
-  });
+    .then(() => {
+      // スピナーを非表示
+      this.setStateIsLoading();
+    })
+    .catch((error) => {
+      // スピナーを非表示
+      this.setStateIsLoading();
+      console.log(error);
+    });
   }
 
   render() {
