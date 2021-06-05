@@ -19,7 +19,7 @@ class One extends React.Component {
 
           あなたの少しの行動で1頭でも多くの犬や猫が救われるかもしれないのです。</p>
         <ul className="actions">
-          <li><a href="/" className="button">要らないものを送る</a></li>
+          <li><a href="#three" className="button">要らないものを送る</a></li>
         </ul>
       </section>
     );

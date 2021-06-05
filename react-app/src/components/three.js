@@ -8,51 +8,81 @@ class Three extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      message: ''
+      name: "",
+      email: "",
+      message: ""
     };
     this.setStateIsLoading = this.setStateIsLoading.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.contactSubmit = this.contactSubmit.bind(this);
   }
 
+  // フォームの入力をセット
   handleChange(event) {
-    // フォームの入力をセット
     const target = event.target;
     const value  = target.value;
     const name = target.name;
     this.setState({ [name]: value });
   };
 
+  // スピナーの表示非表示切り替え
   setStateIsLoading() {
-    // スピナーの表示非表示切り替え
     return this.props.setStateIsLoading();
   };
 
-  contactSubmit(event) {
-    // スピーナーを表示
-    this.setStateIsLoading();
+  // バリデーションチェック(必須チェクのみ)
+  validator() {
+    const {name, message, email} = this.state;
+    let validate = {invalid: false, items:[]};
+    if(!name || name === undefined || !name.trim()) {
+      validate.invalid = true;
+      validate.items.push("お名前");
+    } 
+    if(!message || message === undefined || !message.trim()) {
+      validate.invalid = true;
+      validate.items.push("お問い合わせ内容");
+    }
+    if(!email || email === undefined || !email.trim()) {
+      validate.invalid = true;
+      validate.items.push("メールアドレス");
+    }
 
-    // 送信データを作成
-    const data = {
-      from_name: this.state.name,
-      message: this.state.message,
-      reply_to: this.state.email,
-    };
-    // フォームを初期化
-    event.preventDefault();
-    
-    send(emailjsConf.service_id, emailjsConf.templeate_id, data, emailjsConf.user_id)
-    .then(() => {
-      // スピナーを非表示
+    return validate;
+  }
+
+  contactSubmit(event) {
+    // バリデーションチェック
+    const {invalid, items} = this.validator();
+
+    if(invalid && items.length > 0) {
+      // バリデーションエラー時
+      alert(`【${items}】を入力してください。`);
+
+    } else{
+      // スピーナーを表示
       this.setStateIsLoading();
-    })
-    .catch((error) => {
-      // スピナーを非表示
-      this.setStateIsLoading();
-      console.log(error);
-    });
+      // 送信データを作成
+      const data = {
+        from_name: this.state.name,
+        message: this.state.message,
+        reply_to: this.state.email,
+      };
+      // フォームを初期化
+      event.preventDefault();
+      
+      send(emailjsConf.service_id, emailjsConf.templeate_id, data, emailjsConf.user_id)
+      .then(() => {
+        // スピナーを非表示
+        this.setStateIsLoading();
+        alert('メッセージを送信しました。');
+      })
+      .catch((error) => {
+        // スピナーを非表示
+        this.setStateIsLoading();
+        console.log(error);
+        alert('メッセージの送信に失敗しました。');
+      });
+    }
   }
 
   render() {
@@ -76,6 +106,8 @@ class Three extends React.Component {
                     placeholder="Name" 
                     value={this.state.name}
                     onChange={this.handleChange}
+                    maxLength="30"
+                    required
                   />
                 </div>
                 <div className="col-6 col-12-xsmall">
@@ -86,6 +118,7 @@ class Three extends React.Component {
                     placeholder="Email"
                     value={this.state.email}
                     onChange={this.handleChange}
+                    required
                   />
                 </div>
                 <div className="col-12">
@@ -96,19 +129,18 @@ class Three extends React.Component {
                     rows="4"
                     value={this.state.message}
                     onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-6 col-12-xsmall">
+                  <input
+                    onClick={this.contactSubmit}
+                    type="submit"
+                    value="Send Message"
                   />
                 </div>
               </div>
             </form>
-            <ul className="actions">
-              <li>
-                <input
-                  onClick={this.contactSubmit}
-                  type="submit"
-                  value="Send Message"
-                />
-              </li>
-            </ul>
           </div>
           <div className="col-4 col-12-small">
             <ul className="labeled-icons">
